@@ -1,0 +1,321 @@
+<!-- שמור את זה כ-index.html והעלה לדפדפן -->
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <title>האתר הכי משודרג</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Varela Round', sans-serif;
+      direction: rtl;
+      background: linear-gradient(135deg, #e0f7fa, #ffffff);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: #2196f3;
+      padding: 15px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 18px;
+      transition: 0.3s;
+    }
+    nav a:hover, nav a.active {
+      border-bottom: 2px solid #ffc107;
+    }
+    main {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    section {
+      display: none;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+    section.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-top: 30px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    form {
+      max-width: 400px;
+      margin: 20px auto;
+      text-align: right;
+    }
+    input, textarea {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #43a047;
+    }
+    footer {
+      background-color: #f1f1f1;
+      padding: 15px;
+      text-align: center;
+      margin-top: 30px;
+    }
+    #backToTop {
+      position: fixed;
+      bottom: 25px;
+      left: 25px;
+      background-color: #2196f3;
+      color: white;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 50%;
+      font-size: 22px;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
+      opacity: 0.1;
+      z-index: -1;
+      animation: scrollBg 30s linear infinite;
+    }
+    @keyframes scrollBg {
+      from { background-position: 0 0; }
+      to { background-position: 1000px 0; }
+    }
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+    .pricing-table {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .pricing-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      width: 250px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .pricing-card h2 {
+      color: #2196f3;
+    }
+    .pricing-card p {
+      margin: 20px 0;
+    }
+    .pricing-card button {
+      background-color: #ff9800;
+      border: none;
+      padding: 10px;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .pricing-card button:hover {
+      background-color: #fb8c00;
+    }
+    .order-form {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .order-form form {
+      display: inline-block;
+      text-align: left;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="#" onclick="showSection('home', this)" class="active">בית</a>
+      <a href="#" onclick="showSection('about', this)">אודות</a>
+      <a href="#" onclick="showSection('gallery', this)">גלריה</a>
+      <a href="#" onclick="showSection('game', this)">משחקון</a>
+      <a href="#" onclick="showSection('pricing', this)">מחירון</a>
+      <a href="#" onclick="showSection('contact', this)">צור קשר</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="active">
+      <h1>ברוכים הבאים לאתר הכי מגניב!</h1>
+      <p>הכול כאן — גלריה, משחק, טופס, תפריט, סאונד, אנימציות ועוד!</p>
+    </section>
+
+    <section id="about">
+      <h1>קצת עליי</h1>
+      <p>אני אוהב לתכנת אתרים, לבנות משחקים וללמוד דברים חדשים כל יום!</p>
+    </section>
+
+    <section id="gallery">
+      <h1>גלריית תמונות</h1>
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1492562080023-25941b6a0181" alt="פוטושופ 1">
+        <img src="https://images.unsplash.com/photo-1504197410446-faad4a0d7b39" alt="פוטושופ 2">
+        <img src="https://images.unsplash.com/photo-1586280387172-fd4b0b2f43a2" alt="פוטושופ 3">
+        <img src="https://images.unsplash.com/photo-1565078947-c37c0e8c01b1" alt="פוטושופ 4">
+        <img src="https://images.unsplash.com/photo-1506233343697-7b2648a8e3c0" alt="פוטושופ 5">
+        <img src="https://images.unsplash.com/photo-1602312157649-842c4e2c56b7" alt="פוטושופ 6">
+      </div>
+    </section>
+
+    <section id="game">
+      <h1>🎮 משחקון קליק</h1>
+      <p>תלחץ כמה שיותר פעמים על הכפתור!</p>
+      <button onclick="clickGame()">לחץ עליי</button>
+      <p>מספר לחיצות: <span id="clickCount">0</span></p>
+    </section>
+
+    <section id="pricing">
+      <h1>מחירון שירותי עיצוב</h1>
+      <div class="pricing-table">
+        <div class="pricing-card">
+          <h2>עיצוב אתרים</h2>
+          <p>אתר מותאם אישית עם עיצוב ייחודי</p>
+          <p><strong>₪2000</strong></p>
+          <a href="#order" onclick="showSection('order', this)">
+            <button>הזמן עכשיו</button>
+          </a>
+        </div>
+        <div class="pricing-card">
+          <h2>עיצוב גרפי</h2>
+          <p>עיצוב תמונות, לוגואים, פרסומים</p>
+          <p><strong>₪1500</strong></p>
+          <a href="#order" onclick="showSection('order', this)">
+            <button>הזמן עכשיו</button>
+          </a>
+        </div>
+        <div class="pricing-card">
+          <h2>מיקס של עיצוב</h2>
+          <p>עיצוב אתרים וגרפיקה במקביל</p>
+          <p><strong>₪3500</strong></p>
+          <a href="#order" onclick="showSection('order', this)">
+            <button>הזמן עכשיו</button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="order">
+      <h1>הזמנת שירות</h1>
+      <div class="order-form">
+        <form action="https://formspree.io/f/moqgdpwl" method="POST">
+          <label>שם מלא:</label>
+          <input type="text" name="name" placeholder="הכנס את שמך" required>
+          <label>אימייל:</label>
+          <input type="email" name="email" placeholder="example@gmail.com" required>
+          <label>בחר שירות:</label>
+          <select name="service" required>
+            <option value="עיצוב אתרים">עיצוב אתרים</option>
+            <option value="עיצוב גרפי">עיצוב גרפי</option>
+            <option value="מיקס של עיצוב">מיקס של עיצוב</option>
+          </select>
+          <label>הערות:</label>
+          <textarea name="message" rows="4" placeholder="כתבו את בקשתכם או הערות נוספות..." required></textarea>
+          <button type="submit">שליחה</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h1>צור קשר</h1>
+      <form action="https://formspree.io/f/moqgdpwl" method="POST">
+        <label>שם מלא:</label>
+        <input type="text" name="name" placeholder="הכנס את שמך" required>
+        <label>אימייל:</label>
+        <input type="email" name="email" placeholder="example@gmail.com" required>
+        <label>הודעה:</label>
+        <textarea name="message" rows="4" placeholder="כתוב הודעה..." required></textarea>
+        <button type="submit">שליחה</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 האתר של אלוף התכנות 🚀</p>
+  </footer>
+
+  <button id="backToTop" onclick="scrollToTop()">↑</button>
+
+  <audio id="clickSound" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>
+
+  <script>
+    function showSection(id, el) {
+      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+      el.classList.add('active');
+      playClickSound();
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    let count = 0;
+    function clickGame() {
+      count++;
+      document.getElementById('clickCount').innerText = count;
+      playClickSound();
+    }
+
+    function playClickSound() {
+      document.getElementById('clickSound').play();
+    }
+  </script>
+</body>
+</html>
